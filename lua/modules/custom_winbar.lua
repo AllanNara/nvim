@@ -1,0 +1,48 @@
+-- -- modules/custom_winbar.lua
+-- local M = {}
+--
+-- -- Íconos y títulos para cada tipo de ventana DAP
+-- local icons = {
+--   scopes = " Scopes",
+--   stacks = "󰘕 Stacks",
+--   breakpoints = " Breakpoints",
+--   watches = "󰈈 Watches",
+--   console = " Console",
+-- }
+--
+-- -- Asociación filetype → Título personalizado
+-- local ft_to_title = {
+--   dapui_scopes = icons.scopes,
+--   dapui_stacks = icons.stacks,
+--   dapui_breakpoints = icons.breakpoints,
+--   dapui_watches = icons.watches,
+--   dapui_console = icons.console,
+--
+--   -- Opcional: activa para archivos comunes si querés
+--   -- lua = "󰢱 Lua",
+--   -- python = " Python",
+--   -- javascript = " JavaScript",
+-- }
+--
+-- -- Genera el winbar si aplica
+-- function M.get_winbar()
+--   local ft = vim.bo.filetype
+--   local title = ft_to_title[ft]
+--   if title then
+--     return "%#Title#" .. "  " .. title
+--   end
+--   return nil -- No mostrar nada si no está en la tabla
+-- end
+--
+-- -- Configura autocomando para actualizar el winbar dinámicamente
+-- function M.setup()
+--   vim.api.nvim_create_autocmd({ "BufWinEnter", "WinEnter", "BufEnter" }, {
+--     callback = function()
+--       local val = M.get_winbar()
+--       vim.opt_local.winbar = val
+--     end,
+--     desc = "Custom dynamic winbar for DAP UI",
+--   })
+-- end
+--
+-- return M

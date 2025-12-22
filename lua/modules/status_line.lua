@@ -1,0 +1,62 @@
+return {
+  -- "nvim-lualine/lualine.nvim",
+  -- event = "VeryLazy",
+  -- config = function()
+  --   local lualine = require("lualine")
+  --
+  --   -- Define el grupo de highlight personalizado
+  --   vim.api.nvim_set_hl(0, "WinBarDAP", {
+  --     fg = "#B8BB26", -- Cambiá esto por el color que quieras
+  --     bg = "NONE",
+  --     bold = true,
+  --   })
+  --
+  --   -- Función para mostrar los títulos de los paneles DAP con íconos y color
+  --   local function dap_winbar()
+  --     local ft = vim.bo.filetype
+  --     local icons = {
+  --       dapui_watches = "  Watches",
+  --       dapui_stacks = "  Stacks",
+  --       dapui_breakpoints = "  Breakpoints",
+  --       dapui_scopes = "  Scopes",
+  --       dapui_console = "  Console",
+  --     }
+  --     if icons[ft] then
+  --       return "%#WinBarDAP#  " .. icons[ft]
+  --     end
+  --     return ""
+  --   end
+  --
+  --   -- función para condicionar el uso del winbar solo a ciertos filetypes
+  --   local function conditional_winbar()
+  --     local exclude = {
+  --       ["dap-repl"] = true,
+  --       ["dapui_watches"] = false,
+  --       ["dapui_scopes"] = false,
+  --       ["dapui_stacks"] = false,
+  --       ["dapui_breakpoints"] = false,
+  --       ["dapui_console"] = false,
+  --     }
+  --
+  --     if exclude[vim.bo.filetype] then
+  --       return "" -- No mostrar winbar
+  --     end
+  --     return dap_winbar()
+  --   end
+  --
+  --   lualine.setup({
+  --     options = {
+  --       theme = vim.g.alpha_lualine_color or "gruvbox",
+  --       icons_enabled = true,
+  --       globalstatus = true,
+  --     },
+  --     extensions = { "quickfix" },
+  --     winbar = {
+  --       lualine_c = { conditional_winbar },
+  --     },
+  --     inactive_winbar = {
+  --       lualine_c = { conditional_winbar },
+  --     },
+  --   })
+  -- end,
+}

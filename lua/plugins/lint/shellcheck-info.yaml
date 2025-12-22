@@ -1,0 +1,4 @@
+config:
+  SC1091: false
+  SC2162: false
+

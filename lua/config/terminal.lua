@@ -1,0 +1,86 @@
+-- local Terminal = require("toggleterm.terminal").Terminal
+-- local root = require("lazyvim.util").root.get()
+--
+-- local term_root = nil
+-- local term_buffer = nil
+-- local extra_term_count = 0
+-- local extra_terms = {}
+--
+-- local function toggle_root_term()
+--   if not term_root then
+--     term_root = Terminal:new({
+--       dir = root,
+--       direction = "float",
+--       on_exit = function() term_root = nil end,
+--     })
+--   end
+--   term_root:toggle()
+-- end
+--
+-- local function toggle_buffer_term()
+--   local cwd = vim.fn.expand("%:p:h")
+--   if not term_buffer then
+--     term_buffer = Terminal:new({
+--       dir = cwd,
+--       direction = "float",
+--       on_exit = function() term_buffer = nil end,
+--     })
+--   elseif term_buffer.dir ~= cwd then
+--     term_buffer:close()
+--     term_buffer = Terminal:new({
+--       dir = cwd,
+--       direction = "float",
+--       on_exit = function() term_buffer = nil end,
+--     })
+--   end
+--   term_buffer:toggle()
+-- end
+--
+-- local function new_extra_term()
+--   extra_term_count = extra_term_count + 1
+--   local term = Terminal:new({
+--     direction = "float",
+--     on_exit = function() extra_terms[extra_term_count] = nil end,
+--   })
+--   extra_terms[extra_term_count] = term
+--   term:toggle()
+-- end
+--
+-- vim.keymap.set({ "n", "t" }, "<C-/>", toggle_buffer_term, { desc = "Toggle Terminal en buffer" })
+-- vim.keymap.set({ "n", "t" }, "<S-C-/>", toggle_root_term, { desc = "Toggle Terminal en root" })
+-- vim.keymap.set({ "n", "t" }, "<leader>tn", new_extra_term, { desc = "Nueva terminal extra" })
+--
+-- -- Navegar entre terminales abiertas con <leader>th (toggle terminal siguiente)
+-- local function cycle_terminals()
+--   local all_terms = {}
+--
+--   if term_root then table.insert(all_terms, term_root) end
+--   if term_buffer then table.insert(all_terms, term_buffer) end
+--   for _, t in pairs(extra_terms) do
+--     if t then table.insert(all_terms, t) end
+--   end
+--
+--   if #all_terms == 0 then
+--     print("No hay terminales abiertas")
+--     return
+--   end
+--
+--   -- Buscar terminal activo
+--   local current_buf = vim.api.nvim_get_current_buf()
+--   local idx = nil
+--   for i, t in ipairs(all_terms) do
+--     if vim.api.nvim_buf_is_valid(t.bufnr) and t.bufnr == current_buf then
+--       idx = i
+--       break
+--     end
+--   end
+--
+--   local next_idx = 1
+--   if idx and idx < #all_terms then
+--     next_idx = idx + 1
+--   end
+--
+--   all_terms[next_idx]:toggle()
+-- end
+--
+-- vim.keymap.set("n", "<leader>th", cycle_terminals, { desc = "Siguiente terminal abierta" })

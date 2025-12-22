@@ -1,0 +1,22 @@
+-- -- Función para detectar buffers dap-ui y mostrar título personalizado
+-- local function dapui_winbar()
+--   local bufname = vim.api.nvim_buf_get_name(0)
+--   if bufname:match("dapui://") then
+--     -- Extraer el tipo de panel desde el nombre del buffer
+--     -- Los buffers dapui suelen tener nombres así: dapui://stacks, dapui://console, etc.
+--     local title = bufname:match("dapui://(.*)")
+--     if title then
+--       return "DAP " .. title:gsub("^%l", string.upper)  -- Capitaliza la primera letra
+--     end
+--   end
+--   return nil -- No poner nada en otras ventanas
+-- end
+--
+-- -- Asignar la función al winbar de la ventana actual
+-- vim.api.nvim_create_autocmd({"BufWinEnter", "WinEnter"}, {
+--   callback = function()
+--     local winid = vim.api.nvim_get_current_win()
+--     local title = dapui_winbar()
+--     vim.api.nvim_win_set_option(winid, 'winbar', title or '')
+--   end,
+-- })
