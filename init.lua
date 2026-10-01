@@ -12,13 +12,13 @@ vim.filetype.add({
   extension = {
     conf = "conf",
     env = "dotenv",
-    handlebars = "handlebars",
+    handlebars = "html",
   },
   filename = {
     [".env"] = "dotenv",
   },
   pattern = {
-    [".*%.handlebars"] = "handlebars",
+    [".*%.handlebars"] = "html",
     [".?env.*"] = "dotenv",
   },
 })

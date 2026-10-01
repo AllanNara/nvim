@@ -6,10 +6,3 @@ debug
 foo.*
 *.log
 data
-
-/.lazy/
-/lazy/
-plugin/
-/undo/
-/swap/
-

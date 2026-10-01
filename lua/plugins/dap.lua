@@ -75,6 +75,19 @@ return {
           {
             type = "pwa-node",
             request = "launch",
+            name = "Test retail Pricing 2",
+            program = "/home/allannara/Repositorios/robot-pricing-2/src/retail.js",
+            cwd = "/home/allannara/Repositorios/robot-pricing-2/src",
+            skipFiles = { "/home/allannara/Repositorios/robot-pricing-2/src/node_modules/**", "<node_internals>/**" }, -- Ignora archivos internos de Node.js para que no salten al debug.
+            console = "integratedTerminal",
+            internalConsoleOptions = "neverOpen",
+            sourceMaps = false,
+            runtimeArgs = { "--env-file", "/home/allannara/envs/retail.env" },
+            args = { "--env-file /home/allannara/envs/retail.env" },
+          },
+          {
+            type = "pwa-node",
+            request = "launch",
             name = "Debug current file",
             program = "${file}",
             cwd = "${workspaceFolder}",
